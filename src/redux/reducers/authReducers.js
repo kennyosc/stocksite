@@ -1,4 +1,5 @@
 const intialState = {
+    _id: '',
     name: '',
     email: '',
     password: '',
@@ -26,6 +27,7 @@ const userAuth = (state = intialState, action) => {
             const data = action.payload.data.user
             return {
                 ...state,
+                _id: data._id,
                 name: data.name,
                 email: data.email,
                 noKtp: data.noKtp,

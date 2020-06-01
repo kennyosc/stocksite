@@ -6,6 +6,9 @@ import InputForm from './single/formItem'
 import loginImage from '../images/loginImage.jpg'
 import './Login.css'
 import { Redirect } from 'react-router-dom'
+import cookies from 'universal-cookie'
+
+const cookie = new cookies()
 
 class Home extends React.Component {
     constructor(props) {
@@ -32,9 +35,10 @@ class Home extends React.Component {
             email: this.state.email,
             password: this.state.password
         }
-        this.props.dispatch(Login(data)).then(val => {
-            sessionStorage.setItem('auth', val.value.data.auth)
-            sessionStorage.setItem('user', val.value.data.user)
+        this.props.dispatch(Login(data)).then(response => {
+            const { _id, name, email, verification } = response.value.data.user
+            const auth = response.value.data.auth
+            cookie.set('user', { _id, name, email, verification, auth }, { path: '/', maxAge: 60 * 15 })
         })
     }
 
