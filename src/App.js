@@ -35,7 +35,7 @@ class App extends React.Component {
     const userCookie = cookie.get('user')
     console.log(userCookie)
     if (userCookie !== undefined) {
-      this.props.keepLogin(userCookie)
+      this.props.dispatch(keepLogin(userCookie))
     }
   }
 
@@ -54,5 +54,5 @@ class App extends React.Component {
 }
 
 
-export default connect(null, { keepLogin })(App);
+export default connect(null)(App);
 // export default App;

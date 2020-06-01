@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-
 export const Login = (data) => {
     return ({
         type: 'LOGIN',

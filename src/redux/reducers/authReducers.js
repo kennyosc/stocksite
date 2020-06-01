@@ -1,4 +1,4 @@
-const intialState = {
+const init = {
     _id: '',
     name: '',
     email: '',
@@ -20,8 +20,7 @@ const intialState = {
 ...FULFILLED
 ...REJECTED*/
 
-const userAuth = (state = intialState, action) => {
-    console.log(action.payload)
+const userAuth = (state = init, action) => {
     switch (action.type) {
         case "LOGIN_FULFILLED": {
             const data = action.payload.data.user
