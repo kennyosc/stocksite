@@ -1,4 +1,6 @@
 import axios from 'axios'
+import cookies from 'universal-cookie'
+const cookie = new cookies()
 
 export const Login = (data) => {
     return ({
@@ -21,5 +23,12 @@ export const keepLogin = (cookie) => {
                 auth: cookie.auth
             }
         }
+    }
+}
+
+export const logout = () => {
+    cookie.remove('user')
+    return {
+        type: 'LOGOUT_FULFILLED'
     }
 }

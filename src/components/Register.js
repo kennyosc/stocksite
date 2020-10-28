@@ -45,7 +45,18 @@ class Register extends React.Component {
     onFinish = async (values) => {
         const { name, email, password, passwordConfirmation, noKtp, noNpwp, alamat, kecamatan, kelurahan, kodePos, noHandphone, jenisKelamin } = values
         const data = {
-            name, email, password, passwordConfirmation, noKtp, noNpwp, alamat, kecamatan, kelurahan, kodePos, noHandphone, jenisKelamin
+            name,
+            email,
+            password,
+            passwordConfirmation,
+            noKtp,
+            noNpwp,
+            alamat,
+            kecamatan,
+            kelurahan,
+            kodePos,
+            noHandphone,
+            jenisKelamin
         }
         const registerResponse = await axios.post('http://localhost:3000/auth/register', data)
         console.log(registerResponse)

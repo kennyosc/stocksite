@@ -41,7 +41,10 @@ const userAuth = (state = init, action) => {
                 auth: action.payload.data.auth,
 
             }
-        }
+        };
+        case 'LOGOUT_FULFILLED': {
+            return init
+        };
         default:
             return state
     }

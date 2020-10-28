@@ -10,7 +10,6 @@ class Dashboard extends React.Component {
         this.state = {
             list: []
         }
-        this.handleChange = this.handleChange.bind(this)
     }
 
     async componentDidMount() {
